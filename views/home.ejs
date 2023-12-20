@@ -1,0 +1,42 @@
+<%- include("partials/header.ejs")%>
+
+<body>
+    <h1>SIMPLE BLOG CREATER</h1>
+    <div class="anchor"> <a href="/new">New</a></div>
+     
+    <%if (locals.posts != ''){%>
+        <div class="full-posts">
+            <% posts.forEach(post => { %>
+            <div class="card"> 
+                <div class="container">
+                
+            <h1><%= post.content %></h1>
+            
+            <img src="/images/<%=images[randomNumImg]%>.png" class="blogimg" alt="butterfly">
+            <form action="/delete/<%= post.id %>" method="POST"    style="display:inline;">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete</button>
+              </form> 
+            <h2><%=post.desc%></h2>
+                </div>
+            </div>
+        </div>
+            <br>
+            <% }); %>
+        </div>
+    <%} else {%>
+<!--default card-->
+<div class="card">
+    <h1><b>Sample Post</b></h1>
+
+    <img src="/images/<%=images[randomNumImg]%>.png" class="blogimg" alt="Preview Image">
+    <div class="container">
+    
+    <h2>Create a Post</h2>
+  </div>
+</div>
+   <% };%>
+      
+</body>
+<%- include("partials/footer.ejs")%>
+</html>

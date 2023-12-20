@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs")%>
+
+<body>
+
+    <h1>Create a New Post</h1>
+    <!--When form submitted it will send a post request to /create route-->
+    
+    <form action="/create" onsubmit="" method="POST">
+        <label for="postContent">Title</label>
+        <!--User submission will be accessible as req.body.postContent-->
+        <textarea name="postContent" id="postContent" rows="2" cols="50" maxlength="100"></textarea>
+        <br>
+        <label for="postDesc">Content</label>
+        <textarea name="postDesc" id="postDesc" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Submit Post</button>
+    </form>
+    
+</body>
+<%- include("partials/footer.ejs")%>
+</html>
